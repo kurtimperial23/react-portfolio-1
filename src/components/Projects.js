@@ -6,6 +6,8 @@ import projImg1 from "../assets/img/project-img-PPU.png";
 import projImg2 from "../assets/img/project-img-DACC.png";
 import projImg3 from "../assets/img/project-img-BG.png";
 import projImg4 from "../assets/img/project-img-BM.jpg";
+import TrackVisibility from 'react-on-screen';
+import { isVisible } from "@testing-library/user-event/dist/utils";
 
 export const Projects = () => {
 
@@ -57,9 +59,18 @@ export const Projects = () => {
             <Container>
                 <Row>
                     <Col>
-                        <h2>Projects</h2>
-                        <p>As a Student and an aspiring IT expert, i keep on improving my craft in any means possible. With that being said, my works are uploaded in github. It is available for the general public to view and give feedback to my works. I may not be the best in my craft, but i surely aspire to improve further in my career </p>
-
+                        <TrackVisibility once offset={400}>
+                            {({ isVisible })=> (
+                                <div>
+                                      <div className={isVisible ? "animate__animated animate__fadeInUp animate__slow" : ""}>
+                                        <h2 className="mb-5">Projects</h2>
+                                    </div>
+                                    <div className={isVisible ? "animate__animated animate__fadeInUp animate__slow" : ""}>
+                                        <p>As a Student and an aspiring IT expert, i keep on improving my craft in any means possible. With that being said, my works are uploaded in github. It is available for the general public to view and give feedback to my works. I may not be the best in my craft, but i surely aspire to improve further in my career </p>
+                                    </div>
+                                </div>
+                            )}
+                        </TrackVisibility>
                         <Tab.Container id="projects-tab" defaultActiveKey="first">
                             <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                                 <Nav.Item>

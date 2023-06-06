@@ -6,6 +6,9 @@ import meter1 from "../assets/img/meter1.svg";
 import meter2 from "../assets/img/meter2.svg";
 import meter3 from "../assets/img/meter3.svg";
 import colorSharp from "../assets/img/color-sharp.png"
+import TrackVisibility from 'react-on-screen';
+import 'animate.css';
+import { isVisible } from "@testing-library/user-event/dist/utils";
 
 export const Skills =() => {
 
@@ -35,10 +38,18 @@ export const Skills =() => {
                 <Row>
                     <Col>
                         <div className="skill-box">
-                            <h2>
-                                Skills
-                            </h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            <TrackVisibility once offset={300}>
+                                {({isVisible}) => (
+                                    <div>
+                                        <div className={isVisible ? "animate__animated animate__fadeInUp animate__slow" : ""}>
+                                            <h2 className="mb-5">Skills</h2>
+                                        </div>
+                                        <div className={isVisible ? "animate__animated animate__fadeInUp animate__slow" : ""}>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                        </div>
+                                    </div>
+                                )}
+                            </TrackVisibility>
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">
                                 <div className="item">
                                     <img src={meter1} alt="Image" />
@@ -52,7 +63,7 @@ export const Skills =() => {
 
                                 <div className="item">
                                     <img src={meter3} alt="Image" />
-                                    <h5>Web Development</h5>    
+                                    <h5>Game Development</h5>    
                                 </div>
 
                             </Carousel>

@@ -1,18 +1,30 @@
 import { Col, Container, Row } from "react-bootstrap";
+import MailchimpForm from "./MailchimpForm";
+import logo from "../assets/img/logo.svg"
+import navIcon1 from '../assets/img/nav-icon1.svg';
+import navIcon2 from '../assets/img/nav-icon2.svg';
+import navIcon3 from '../assets/img/nav-icon3.svg';
 
 export const Footer = () => {
     return(
-       <section>
+      <footer className="footer">
         <Container>
-            <Row>
-                <Col>
-                    <div>
-                        <h1>Hello my friend</h1>
+            <Row className="align-items-center">
+                <MailchimpForm/>
+                <Col sm={6}>
+                    <img src={logo} alt="Logo"/>
+                </Col>
+                <Col sm={6} className="text-center text-sm-end">
+                    <div className="social-icon">
+                        <a href='https://www.linkedin.com/in/kurt-hydein-p-imperial-a89a96267/' target='react/jsx-no-target-blank'><img src={navIcon1} alt=''/></a>
+                        <a href='https://web.facebook.com/kurt.impe' target='react/jsx-no-target-blank'><img src={navIcon2} alt=''/></a>
+                        <a href='https://z-p3.www.instagram.com/kurt.impe/' target='react/jsx-no-target-blank'><img src={navIcon3} alt=''/></a>
                     </div>
+                    <p>Copyright 2023. All Rights Reserved Kurt Hydein Imperial</p>
                 </Col>
             </Row>
         </Container>
-       </section>
+      </footer>
     );
 }
 

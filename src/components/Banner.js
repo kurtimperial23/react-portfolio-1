@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import headerImg from "../assets/img/header-img.svg";
+import 'animate.css';
+import TrackVisibility from 'react-on-screen';
+import { isVisible } from "@testing-library/user-event/dist/utils";
+
 
 export const Banner =() => {
     const [ loopNum, setLoopNum ] = useState(0);
@@ -40,15 +44,18 @@ export const Banner =() => {
             setDelta(500);
         }
     }
+
     return(
         <section className="banner" id="home">
             <Container>
             <Row className="align-items-center">
                 <Col xs={12} md={12} lg={12} xl={6}>
-                    <span className="tagline">Welcome to my Portfolio!</span>
-                    <h1>{`Hi, I'm Kurt Hydein Imperial. `}<span className="wrap"> {text}|</span></h1>
-                    <p>A University Student's Portfolio made into a website. If you think the page looks good, you can contact me through Messenger or Email which can be found on the links below.</p>
-                    <button onClick={() => console.log('connect')}>Let's Connect <ArrowRightCircle size={25}/> </button>
+                    <div className="animate__animated animate__fadeIn">
+                        <span className="tagline">Welcome to my Portfolio!</span>
+                        <h1>{`Hi, I'm Kurt Hydein Imperial. `}<span className="wrap"> {text}|</span></h1>
+                        <p>A University Student's Portfolio made into a website. If you think the page looks good, you can contact me through Messenger or Email which can be found on the links below.</p>
+                        <button onClick={() => console.log('connect')}>Let's Connect <ArrowRightCircle size={25}/> </button>
+                    </div>
                 </Col>
                 <Col xs={12} md={6} xl={6} className="banner-image">
                     <img src={headerImg} alt="Header img" />
